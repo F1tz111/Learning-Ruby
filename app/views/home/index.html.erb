@@ -1,1 +1,33 @@
+<<<<<<< HEAD
 <h1>Hello <%=@name%> </h1>
+=======
+<% if user_signed_in? && @notes.count > 0 %>
+  <div class="container py-5">
+
+    <div id="notes" class="row g-4">
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <%= link_to new_note_path, class:"d-flex flex-column gap-2 text-center align-items-center justify-content-center border border-dashed b order-dark rounded p-4 text-decoration-none text-dark fw-semibold shadow-sm hover-shadow-lg" do %>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-25 h-25">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+          </svg>
+          Add Note
+        <% end %>
+      </div>
+
+      <% @notes.each do |note| %>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+          <%= link_to note_path(note.id), class:"border border-dark rounded p-4 #{note.color} text-decoration-none text-dark fw-semibold d-block shadow-sm hover-shadow-lg" do %>
+            <div>
+              <p class="fs-4 text-truncate" style="max-width: 100%"><%= note.title.truncate(100) %></p>
+              <p class="text-muted"><%= note.created_at.strftime("%d %b") %></p>
+              <p class="mt-3 text-muted text-wrap" style="overflow: hidden; white-space: normal; text-overflow: ellipsis;"><%= note.description.truncate(100) %></p>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% else %>
+  <%= render 'home/landing' %>
+<% end %>
+>>>>>>> a0134d6 (Initial commit for AuraNotes project)

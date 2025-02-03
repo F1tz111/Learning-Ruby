@@ -1,0 +1,32 @@
+<%= form_with(model: note) do |form| %>
+  <% if note.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(note.errors.count, "error") %> prohibited this note from being saved:</h2>
+
+      <ul>
+        <% note.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="mb-3">
+    <%= form.label :title, style: "display: block", class:'form-label' %>
+    <%= form.text_field :title, class:'form-control' %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :description, style: "display: block", class:'form-label' %>
+    <%= form.text_field :description, class:'form-control' %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :color, style: "display: block", class:'form-label' %>
+    <%= form.text_field :color, class:'form-control' %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.submit %>
+  </div>
+<% end %>

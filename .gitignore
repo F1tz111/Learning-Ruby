@@ -37,6 +37,7 @@
 !/app/assets/builds/.keep
 
 /node_modules
+<<<<<<< HEAD
 
 *.rbc
 capybara-*.html
@@ -107,3 +108,5 @@ yarn-debug.log*
 /storage/*
 !/storage/.keep
 /public/uploads
+=======
+>>>>>>> a0134d6 (Initial commit for AuraNotes project)

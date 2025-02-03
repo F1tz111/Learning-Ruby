@@ -1,0 +1,11 @@
+<% content_for :title, "Editing note" %>
+
+<div class="container mx-auto py-4">
+  <h1 class="text-4xl mb-4">Editing note</h1>
+
+  <%= render "form", note: @note %>
+
+  <div class="mt-4">
+    <%= link_to "Show this note", @note, class: "btn btn-primary me-2" %>
+  </div>
+</div>
